@@ -44,3 +44,34 @@ function findNextPrime(n) {
 
 let n = 9; 
 findNextPrime(n); 
+
+// Part 3 
+
+let csvString = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
+
+function parseCSV(csvString) {
+    let cell = '';
+    let row = [];
+    for (let i = 0; i < csvString.length; i++) {
+        let char = csvString[i];
+        if (char === ',') {
+            row.push(cell);
+            cell = '';
+        } else if (char === '\n') {
+            row.push(cell);
+            console.log(row[0], row[1], row[2], row[3]);
+            row = [];
+            cell = '';
+        } else {
+            cell += char;
+        }
+    }
+    
+    if (cell.length > 0) {
+        row.push(cell);
+        console.log(row[0], row[1], row[2], row[3]);
+    }
+}
+
+
+parseCSV(csvString);

@@ -28,3 +28,19 @@ function isPrime(num) {
     }
     return true; 
 }
+
+// Function to find the next prime number after n
+function findNextPrime(n) {
+    let nextNumber = n + 1; 
+    while (true) {
+        if (isPrime(nextNumber)) {
+            console.log(`The next prime number after ${n} is ${nextNumber}.`);
+            break; 
+        }
+        nextNumber++; 
+    }
+}
+
+
+let n = 9; 
+findNextPrime(n); 
